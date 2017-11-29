@@ -11,8 +11,7 @@ import java.util.Scanner;
 
 public class DataInputHandle {
 	private ArrayList<Student> list = new ArrayList<Student>();
-	private boolean flag = true;	
-
+	
 	//read student data from file
 	public void readData() {
 		Scanner scanner = null;
@@ -57,12 +56,11 @@ public class DataInputHandle {
 		try {
 			fis = new FileInputStream("student.bin");
 			objis = new ObjectInputStream(fis);
-			while (true == flag) {
+			while (true) {
 				Student student = (Student) objis.readObject();
 				System.out.println(student);
 			}
 		} catch (IOException ex) {
-			flag = false;
 			ex.printStackTrace();
 		} catch (ClassNotFoundException ex) {
 			ex.printStackTrace();
